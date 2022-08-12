@@ -2,7 +2,7 @@ import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 
 const imagesList = document.querySelector(".gallery");
-// console.log(imagesList);
+// Markup creation
 const ulList = galleryItems
   .map(
     (image) => `<div class="gallery__item">
@@ -18,14 +18,12 @@ const ulList = galleryItems
   )
   .join("");
 
-// Adding markup for gallery
+// Adding markup to div.gallery
 imagesList.insertAdjacentHTML("afterbegin", ulList);
 
-//Element search in DOM
-const imagesListEL = document.querySelector(".gallery");
-//Adding listener
-imagesListEL.addEventListener("click", getOriginalUrl);
-function getOriginalUrl(event) {
+//Adding listener on image click
+imagesList.addEventListener("click", onTargetImageClick);
+function onTargetImageClick(event) {
   //Checking of targeting to gallery item element
   if (event.target === event.currentTarget) return;
   //Link openning prevention
